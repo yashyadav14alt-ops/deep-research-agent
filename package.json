@@ -1,0 +1,13 @@
+{
+  "name": "deep-research-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A source-grounded AI research agent for exploring complex topics.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
