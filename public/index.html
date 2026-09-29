@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ef">
+  <title>Fieldnotes — Deep Research</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Fieldnotes home"><span class="brand-mark">F</span><span>FIELDNOTES</span></a>
+    <div class="top-meta"><span class="status-dot"></span> RESEARCH WORKSPACE <span class="version">ALPHA 0.1</span></div>
+  </header>
+  <main class="layout">
+    <section class="hero">
+      <p class="eyebrow">A research agent for curious minds</p>
+      <h1>Go beyond<br><em>the surface.</em></h1>
+      <p class="intro">Bring a question. Get a structured briefing grounded in sources, with the context, debates, and adjacent ideas worth exploring next.</p>
+      <form id="research-form" class="research-form">
+        <label for="topic">WHAT SHOULD WE INVESTIGATE?</label>
+        <textarea id="topic" name="topic" rows="2" maxlength="240" required placeholder="e.g. How could solid-state batteries change energy storage?"></textarea>
+        <label for="provider">RESEARCH MODE</label>
+        <select id="provider" name="provider">
+          <option value="auto">Automatic — use available setup</option>
+          <option value="sources">No-key source briefing</option>
+          <option value="ollama">Local Ollama model</option>
+          <option value="openai">OpenAI + Tavily API keys</option>
+        </select>
+        <p class="provider-hint">No keys? Automatic uses public reference and scholarly sources without an LLM.</p>
+        <label for="focus">OPTIONAL ANGLE <span>— narrow the investigation</span></label>
+        <input id="focus" name="focus" maxlength="240" placeholder="e.g. manufacturing barriers and recent progress">
+        <div class="form-footer"><span>Sources are collected first, then used to build your briefing.</span><button type="submit"><span>Start research</span><span aria-hidden="true">↗</span></button></div>
+      </form>
+      <div class="suggestions"><span class="eyebrow">TRY A STARTING POINT</span><div class="chips"><button type="button">How do mRNA vaccines work?</button><button type="button">The future of fusion energy</button><button type="button">Why do AI models hallucinate?</button></div></div>
+    </section>
+    <aside class="side-note"><span class="note-index">01 / METHOD</span><p>Good research shows its work.</p><span class="note-rule"></span><p class="note-small">Every briefing includes source links, evidence limits, and questions the research opens up.</p><div class="orbit" aria-hidden="true"><span></span><span></span><span></span><b>F</b></div></aside>
+    <section id="result" class="result" aria-live="polite"></section>
+  </main>
+  <footer><span>FIELDNOTES RESEARCH SYSTEM</span><span>THINK DEEPLY · CHECK SOURCES</span></footer>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
