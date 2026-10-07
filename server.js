@@ -1,6 +1,6 @@
 import { createServer } from 'node:http';
 import { readFile } from 'node:fs/promises';
-import { extname, join, normalize } from 'node:path';
+import { extname, join, resolve, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
@@ -215,9 +215,16 @@ const server = createServer(async (request, response) => {
   if (request.method !== 'GET' && request.method !== 'HEAD') {
     return sendJson(response, 405, { error: 'Method not allowed.' });
   }
-  const relative = url.pathname === '/' ? 'index.html' : decodeURIComponent(url.pathname.slice(1));
-  const file = normalize(join(publicDir, relative));
-  if (!file.startsWith(publicDir)) return sendJson(response, 403, { error: 'Forbidden.' });
+  let relative;
+  try {
+    relative = url.pathname === '/' ? 'index.html' : decodeURIComponent(url.pathname.slice(1));
+  } catch {
+    return sendJson(response, 400, { error: 'Invalid file path.' });
+  }
+  const file = resolve(publicDir, relative);
+  if (file !== publicDir && !file.startsWith(`${publicDir}${sep}`)) {
+    return sendJson(response, 403, { error: 'Forbidden.' });
+  }
   try {
     const content = await readFile(file);
     const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8' };
