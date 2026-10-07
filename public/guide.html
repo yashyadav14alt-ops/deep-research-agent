@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4ef">
+  <meta name="description" content="A practical guide to researching with Fieldnotes Deep Research Agent.">
+  <title>How to use Fieldnotes — Deep Research</title>
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/guide.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Fieldnotes home"><span class="brand-mark">F</span><span>FIELDNOTES</span></a>
+    <nav class="top-actions" aria-label="Main navigation">
+      <a class="top-link" href="/">Research workspace</a>
+      <a class="star-link" href="https://github.com/yashyadav14alt-ops/deep-research-agent" target="_blank" rel="noopener noreferrer" aria-label="Star Fieldnotes on GitHub">☆ Star on GitHub</a>
+    </nav>
+  </header>
+  <main class="guide-layout">
+    <p class="eyebrow">FIELD GUIDE · 3 MIN READ</p>
+    <h1>From question<br><em>to a research map.</em></h1>
+    <p class="guide-lede">Fieldnotes helps you explore a topic, see where its starting sources came from, and decide what to investigate next. Treat the briefing as a map—not a final fact-check.</p>
+
+    <section class="guide-section">
+      <p class="note-index">01 / START</p>
+      <h2>Ask a focused question</h2>
+      <ol>
+        <li>Open the <a href="/">research workspace</a>.</li>
+        <li>Enter a question with enough context to distinguish what you want to know. For example: <em>“What limits the use of sodium-ion batteries for grid storage?”</em></li>
+        <li>Use <strong>Optional angle</strong> to narrow it further, such as <em>“manufacturing cost compared with lithium-ion”</em>.</li>
+        <li>Choose a research mode and select <strong>Start research</strong>.</li>
+      </ol>
+      <p>Short, specific questions usually make it easier to judge whether each result is relevant. Try one angle at a time when a topic is broad.</p>
+    </section>
+
+    <section class="guide-section">
+      <p class="note-index">02 / CHOOSE A MODE</p>
+      <h2>Pick the right setup</h2>
+      <dl class="mode-list">
+        <div><dt>Automatic</dt><dd>Uses OpenAI + Tavily if both API keys are configured; otherwise it uses the no-key source briefing.</dd></div>
+        <div><dt>No-key source briefing</dt><dd>Searches public Wikipedia and Crossref records and organizes the available excerpts. It does not generate an LLM synthesis.</dd></div>
+        <div><dt>Local Ollama model</dt><dd>Uses public-source results, then sends excerpts to your configured local Ollama server to draft the briefing.</dd></div>
+        <div><dt>OpenAI + Tavily</dt><dd>Uses Tavily to search and OpenAI to synthesize the returned excerpts. The server needs both API keys.</dd></div>
+      </dl>
+      <p>For setup instructions and environment variable names, see the <a href="https://github.com/yashyadav14alt-ops/deep-research-agent#quick-start" target="_blank" rel="noopener noreferrer">project README</a>.</p>
+    </section>
+
+    <section class="guide-section">
+      <p class="note-index">03 / READ THE BRIEFING</p>
+      <h2>Follow the evidence</h2>
+      <ul>
+        <li><strong>Key findings and deep dive:</strong> scan the source-linked excerpts and model synthesis, if you chose an LLM mode.</li>
+        <li><strong>Debates &amp; evidence limits:</strong> note what the search could not establish.</li>
+        <li><strong>Sources:</strong> open the original link. Check the publication date, methods, and whether the source supports the specific claim.</li>
+        <li><strong>Open questions and related topics:</strong> use these to plan your next search.</li>
+      </ul>
+      <p>Search results can be incomplete or outdated. This MVP reads search excerpts and scholarly metadata, not full webpages or papers, and it does not independently verify source claims. Do not treat a generated briefing as medical, legal, financial, or other professional advice.</p>
+    </section>
+
+    <section class="guide-section guide-example">
+      <p class="note-index">A GOOD FIRST RUN</p>
+      <p><strong>Question:</strong> How does urban tree cover affect summer heat in Indian cities?</p>
+      <p><strong>Angle:</strong> evidence from satellite studies and limits of city-level comparisons</p>
+      <p><strong>Mode:</strong> No-key source briefing to explore source leads, or OpenAI + Tavily / Ollama for a model-written synthesis.</p>
+    </section>
+
+    <div class="guide-cta">
+      <a class="guide-primary" href="/">Start a research briefing <span aria-hidden="true">↗</span></a>
+      <a class="star-link" href="https://github.com/yashyadav14alt-ops/deep-research-agent" target="_blank" rel="noopener noreferrer">☆ Star Fieldnotes on GitHub</a>
+    </div>
+  </main>
+  <footer><span>FIELDNOTES RESEARCH SYSTEM</span><span>THINK DEEPLY · CHECK SOURCES</span></footer>
+</body>
+</html>
