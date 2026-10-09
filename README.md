@@ -45,7 +45,7 @@ The server reads environment variables directly; it does not load a `.env` file.
 
 ## What you get
 
-Briefings include key findings, a deeper dive, debates and evidence limits, related topics, open questions, a conclusion, and links to the collected sources. The optional angle helps narrow the search. The app currently uses search excerpts and scholarly metadata rather than fetching full webpages or papers; reports are not saved.
+Briefings include key findings, a deeper dive, debates and evidence limits, related topics, open questions, a conclusion, and links to the collected sources. Use **Download Markdown** to save the current briefing with its citation IDs and source links, or **Copy Markdown** to paste it into your notes. Exports are created in your browser; the app does not store reports. The optional angle helps narrow the search. The app currently uses search excerpts and scholarly metadata rather than fetching full webpages or papers.
 
 ## Data and limitations
 
@@ -61,6 +61,7 @@ See the [full user guide](public/guide.html) for examples and a step-by-step wor
 
 ```sh
 npm start
+npm test
 ```
 
 The app uses Node's built-in HTTP server and has no runtime npm dependencies. Its API accepts `POST /api/research` with `topic`, optional `focus`, and `provider` (`auto`, `sources`, `ollama`, or `openai`).
@@ -69,5 +70,5 @@ The app uses Node's built-in HTTP server and has no runtime npm dependencies. It
 
 - Fetch and extract full pages, with claim-to-source provenance.
 - Add source quality signals, retries, budgets, and clear failure states.
-- Add saved research projects and Markdown export.
+- Add saved research projects.
 - Evaluate citation support and evidence coverage.
